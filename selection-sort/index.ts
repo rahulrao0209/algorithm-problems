@@ -19,7 +19,7 @@ const selectionSort = function (arr: number[]) {
       }
     }
 
-    if (min !== 1) swap(min, i, arr);
+    if (min !== i) swap(min, i, arr);
   }
   return arr;
 };
