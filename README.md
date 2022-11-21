@@ -9,6 +9,7 @@ _A collection of algorithm problems implemented in TypeScript_
 - [Factorial Iterative](./factorial-iterative/index.ts)
 - [Factorial Recursive](./factorial-recursive/index.ts)
 - [Fibonacci Recursive](./fibonacci-recursive/index.ts)
+- [Flatten](./flatten/index.ts)
 - [Palindrome Recursive](./is-palindrome-recursive/index.ts)
 - [Max Subarray Sum](./max-subarray-sum/index.ts)
 - [Median of Two Sorted Arrays](./median-of-two-sorted-arrays/index.ts)
@@ -17,3 +18,4 @@ _A collection of algorithm problems implemented in TypeScript_
 - [Recursive Range](./recursive-range/index.ts)
 - [Reverse String Recursive](./reverse-string-recursive/index.ts)
 - [Selection Sort](./selection-sort/index.ts)
+- [Some Recursive](./some-recursive/index.ts)
