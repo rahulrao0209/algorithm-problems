@@ -10,6 +10,7 @@ _A collection of algorithm problems implemented in TypeScript_
 - [Factorial Recursive](./factorial-recursive/index.ts)
 - [Fibonacci Recursive](./fibonacci-recursive/index.ts)
 - [Flatten](./flatten/index.ts)
+- [Insertion Sort](./insertion-sort/index.ts)
 - [Palindrome Recursive](./is-palindrome-recursive/index.ts)
 - [Max Subarray Sum](./max-subarray-sum/index.ts)
 - [Median of Two Sorted Arrays](./median-of-two-sorted-arrays/index.ts)
