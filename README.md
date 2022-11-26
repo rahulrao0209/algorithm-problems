@@ -14,6 +14,7 @@ _A collection of algorithm problems implemented in TypeScript_
 - [Palindrome Recursive](./is-palindrome-recursive/index.ts)
 - [Max Subarray Sum](./max-subarray-sum/index.ts)
 - [Median of Two Sorted Arrays](./median-of-two-sorted-arrays/index.ts)
+- [Merge Sort](./merge-sort/index.ts)
 - [Power Recursive](./power-recursive/index.ts)
 - [Product of Array Recursive](./product-of-array-recursive/index.ts)
 - [Recursive Range](./recursive-range/index.ts)
