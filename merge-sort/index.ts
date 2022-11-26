@@ -2,6 +2,8 @@
     Problem Statement: 
     Write a merge sort algorithm which given an unsorted array of numbers returns
     a sorted array.
+    Time Complexity - O(nlogn)
+    Space Complexity - O(n)
 */
 
 /* Merge two sorted arrays using the merge function */
