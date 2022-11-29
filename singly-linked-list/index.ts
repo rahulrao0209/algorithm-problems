@@ -62,6 +62,22 @@ class SinglyLinkedList {
     }
     return current;
   }
+
+  /* Remove an item/node from the beginning of the list */
+  shift() {
+    if (!this.head) return;
+
+    const oldHead = this.head;
+
+    if (this.length === 1) {
+      this.tail = null;
+    } else {
+      this.head = this.head.next;
+    }
+
+    this.length -= 1;
+    return oldHead;
+  }
 }
 
 // Test cases
@@ -72,6 +88,8 @@ list.push(2);
 list.push(3);
 list.push(4);
 const poppedNode = list.pop();
+const shiftedNode = list.shift();
 
 console.log("List: ", list);
 console.log("Popped Node: ", poppedNode);
+console.log("Shifted Node: ", shiftedNode);
