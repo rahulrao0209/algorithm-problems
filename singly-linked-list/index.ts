@@ -47,7 +47,7 @@ class SinglyLinkedList {
     let current = this.head;
     let prev: ListNode | null = null;
 
-    while (current?.next !== null) {
+    while (current.next) {
       prev = current;
       current = current!.next;
     }
@@ -55,6 +55,11 @@ class SinglyLinkedList {
     prev!.next = null;
     this.tail = prev;
     this.length -= 1;
+
+    if (this.length === 0) {
+      this.head = null;
+      this.tail = this.head;
+    }
     return current;
   }
 }
