@@ -120,8 +120,6 @@ class SinglyLinkedList {
   insert(val: number | string, index: number) {
     if (index < 0 || index > this.length) return false;
 
-    const newNode = new ListNode(val);
-
     if (index === 0) {
       return this.unshift(val) && true;
     }
@@ -130,12 +128,62 @@ class SinglyLinkedList {
       return this.push(val) && true;
     }
 
+    const newNode = new ListNode(val);
     const prevNode = this.get(index - 1);
     const oldNext = prevNode!.next;
     prevNode!.next = newNode;
     newNode.next = oldNext;
     this.length += 1;
     return true;
+  }
+
+  /* Remove a new node/item from the list */
+  remove(index: number) {
+    if (index < 0 || index >= this.length) return;
+
+    if (index === 0) return this.shift();
+
+    if (index === this.length - 1) return this.pop();
+
+    const prev = this.get(index - 1);
+    const removedNode = prev?.next;
+    prev!.next = removedNode?.next || null;
+    this.length -= 1;
+    return removedNode;
+  }
+
+  /* Reverse the list */
+  /*
+    1 -> 2 -> 3 -> 4
+    4 -> 3 -> 2 -> 1
+  */
+  reverse() {
+    this.tail = this.head;
+    let currentNode = this.head;
+    let prevNode: ListNode | null = null;
+    let nextNode: ListNode | null;
+
+    while (currentNode?.next) {
+      nextNode = currentNode.next;
+      currentNode.next = prevNode;
+      prevNode = currentNode;
+      currentNode = nextNode;
+    }
+
+    this.head = currentNode;
+    currentNode!.next = prevNode;
+    return list;
+  }
+
+  /* Traverse and print the linked list */
+  print() {
+    let currentNode = this.head;
+    let list = "";
+    while (currentNode) {
+      list += `${currentNode.val} -> `;
+      currentNode = currentNode.next;
+    }
+    return list + " null";
   }
 }
 
@@ -147,6 +195,7 @@ list.push(2);
 list.push(3);
 list.push(4);
 list.push(5);
+list.push(6);
 // const poppedNode = list.pop();
 // const shiftedNode = list.shift();
 
@@ -160,3 +209,9 @@ list.push(5);
 // console.log(list.insert("Hello", list.length));
 // console.log(list.get(0));
 // console.log("Updated list: ", list);
+// console.log("Original list: ", list);
+// console.log("Removed node: ", list.remove(3));
+// console.log("Updated list: ", list);
+// console.log(list.print());
+// list.reverse();
+// console.log(list.print());
