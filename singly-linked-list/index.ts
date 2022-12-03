@@ -153,10 +153,6 @@ class SinglyLinkedList {
   }
 
   /* Reverse the list */
-  /*
-    1 -> 2 -> 3 -> 4
-    4 -> 3 -> 2 -> 1
-  */
   reverse() {
     this.tail = this.head;
     let currentNode = this.head;
@@ -212,6 +208,6 @@ list.push(6);
 // console.log("Original list: ", list);
 // console.log("Removed node: ", list.remove(3));
 // console.log("Updated list: ", list);
-// console.log(list.print());
-// list.reverse();
-// console.log(list.print());
+console.log(list.print());
+list.reverse();
+console.log(list.print());
