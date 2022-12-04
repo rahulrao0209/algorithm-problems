@@ -44,7 +44,7 @@ class DoublyLinkedList {
 
   /* Removing a node from the end of the list */
   pop() {
-    if (!this.head) return;
+    if (!this.head) return null;
 
     let removedNode: ListNode | null = null;
     if (this.length === 1) {
@@ -67,7 +67,7 @@ class DoublyLinkedList {
 
   /* Remove a node from the beginning of the list */
   shift() {
-    if (!this.head) return;
+    if (!this.head) return null;
 
     let removedNode: ListNode | null = this.head;
 
@@ -104,29 +104,81 @@ class DoublyLinkedList {
 
   /* Get the node at a given position/index */
   get(index: number) {
-    if (!this.head) return;
+    if (!this.head) return null;
 
-    if (index < 0 || index >= this.length) return;
+    if (index < 0 || index >= this.length) return null;
 
     const startFromHead = index <= Math.floor(this.length / 2);
+    let currentNode: ListNode | null;
+    let counter: number;
 
     if (startFromHead) {
-      let currentNode: ListNode | null = this.head;
-      let counter = 0;
+      currentNode = this.head;
+      counter = 0;
       while (currentNode) {
         if (counter === index) return currentNode;
         currentNode = currentNode.next;
         counter += 1;
       }
     } else {
-      let currentNode: ListNode | null = this.tail;
-      let counter = this.length - 1;
+      currentNode = this.tail;
+      counter = this.length - 1;
       while (currentNode) {
         if (counter === index) return currentNode;
         currentNode = currentNode.prev;
         counter -= 1;
       }
     }
+
+    return null;
+  }
+
+  /* Set the value of a node to a given value */
+  set(index: number, val: number | string) {
+    const listNode = this.get(index);
+    if (!listNode) return false;
+
+    listNode.val = val;
+    return true;
+  }
+
+  /* Insert a new node in the list */
+  insert(index: number, val: number | string) {
+    if (index < 0 || index > this.length) return false;
+    if (index === 0) return this.unshift(val) && true;
+    if (index === this.length) return this.push(val) && true;
+
+    const newNode = new ListNode(val);
+    const prevNode = this.get(index - 1);
+    const nextNode = prevNode!.next;
+
+    prevNode!.next = newNode;
+    newNode.prev = prevNode;
+
+    newNode.next = nextNode;
+    nextNode!.prev = newNode;
+    this.length += 1;
+
+    return true;
+  }
+
+  /* Remove a node from the list */
+  remove(index: number) {
+    if (index < 0 || index >= this.length) return null;
+    if (index === 0) return this.shift();
+    if (index === this.length - 1) return this.pop();
+
+    const removedNode = this.get(index);
+    const prevNode = removedNode!.prev;
+    const nextNode = removedNode!.next;
+
+    removedNode!.next = null;
+    removedNode!.prev = null;
+
+    prevNode!.next = nextNode;
+    nextNode!.prev = prevNode;
+    this.length -= 1;
+    return removedNode;
   }
 
   print() {
@@ -159,6 +211,9 @@ list.push(10);
 // console.log(list.print());
 // console.log(list);
 // console.log(list.unshift(111));
+// console.log(list.set(4, 1000));
+// console.log(list.insert(10, "Hey"));
+// console.log(list.remove(9));
 console.log(list.print());
 // console.log("get: ", list.get(0));
 // console.log("get: ", list.get(1));
