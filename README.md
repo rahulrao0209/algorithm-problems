@@ -18,6 +18,7 @@ _A collection of algorithm problems implemented in TypeScript_
 - [Merge Sort](./merge-sort/index.ts)
 - [Power Recursive](./power-recursive/index.ts)
 - [Product of Array Recursive](./product-of-array-recursive/index.ts)
+- [Queue](./queue/index.ts)
 - [Quick Sort](./quick-sort/index.ts)
 - [Radix Sort](./radix-sort/index.ts)
 - [Recursive Range](./recursive-range/index.ts)

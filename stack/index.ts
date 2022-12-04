@@ -68,7 +68,7 @@ class Stack {
 
     let currentNode: StackNode | null = this.first;
     while (currentNode) {
-      str += ` ${currentNode.val}`;
+      str += `${currentNode.val} `;
       currentNode = currentNode.next;
     }
 
