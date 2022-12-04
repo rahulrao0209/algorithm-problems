@@ -25,3 +25,4 @@ _A collection of algorithm problems implemented in TypeScript_
 - [Selection Sort](./selection-sort/index.ts)
 - [Singly Linked List](./singly-linked-list/index.ts)
 - [Some Recursive](./some-recursive/index.ts)
+- [Stack](./stack/index.ts)
