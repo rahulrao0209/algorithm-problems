@@ -4,6 +4,7 @@ _A collection of algorithm problems implemented in TypeScript_
 
 - [Anagrams](./anagrams/index.ts)
 - [Binary Search](./binary-search/index.ts)
+- [Binary Search Tree](./binary-search-trees/index.ts)
 - [Bubble Sort](./bubble-sort/index.ts)
 - [Count Unique Values](./count-unique-values/index.ts)
 - [Doubly Linked List](./doubly-linked-list/index.ts)
