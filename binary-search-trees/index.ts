@@ -81,6 +81,7 @@ class BST {
 
     const queue = [this.root];
     const visitedNodes: unknown[] = [];
+    let node: BSTNode | undefined;
 
     const bfsHelper = (
       queue: BSTNode[],
@@ -88,7 +89,7 @@ class BST {
     ): unknown[] => {
       if (queue.length === 0) return visitedNodes;
 
-      const node = queue.shift();
+      node = queue.shift();
       if (node) visitedNodes.push(node.val);
 
       if (node?.left) queue.push(node.left);
@@ -98,6 +99,23 @@ class BST {
     };
 
     return bfsHelper(queue, visitedNodes);
+  }
+
+  dfsPreorder() {
+    if (!this.root) return [];
+
+    const visitedNodes: unknown[] = [];
+
+    const dfsHelper = (node: BSTNode): unknown[] => {
+      visitedNodes.push(node.val);
+
+      if (node.left) dfsHelper(node.left);
+      if (node.right) dfsHelper(node.right);
+
+      return visitedNodes;
+    };
+
+    return dfsHelper(this.root);
   }
 }
 
@@ -117,3 +135,4 @@ console.log(tree.find(13));
 console.log(tree.find(11));
 
 console.log(tree.bfs());
+console.log(tree.dfsPreorder());
