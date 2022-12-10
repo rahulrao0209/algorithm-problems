@@ -117,22 +117,59 @@ class BST {
 
     return dfsHelper(this.root);
   }
+
+  dfsPostOrder() {
+    if (!this.root) return [];
+
+    const visitedNodes: unknown[] = [];
+
+    const dfsHelper = (node: BSTNode): unknown[] => {
+      if (node.left) dfsHelper(node.left);
+      if (node.right) dfsHelper(node.right);
+      visitedNodes.push(node.val);
+      return visitedNodes;
+    };
+
+    return dfsHelper(this.root);
+  }
+
+  dfsInOrder() {
+    if (!this.root) return [];
+
+    const visitedNodes: unknown[] = [];
+
+    const dfsHelper = (node: BSTNode) => {
+      if (node.left) dfsHelper(node.left);
+      visitedNodes.push(node.val);
+      if (node.right) dfsHelper(node.right);
+      return visitedNodes;
+    };
+    return dfsHelper(this.root);
+  }
 }
 
 // Test cases
 const tree = new BST();
 
-console.log(tree.insert(10));
-console.log(tree.insert(13));
-console.log(tree.insert(5));
-console.log(tree.insert(4));
-console.log(tree.insert(16));
-console.log(tree.insert(20));
+// console.log(tree.insert(10));
+// console.log(tree.insert(13));
+// console.log(tree.insert(5));
+// console.log(tree.insert(4));
+// console.log(tree.insert(16));
+// console.log(tree.insert(20));
 
-console.log(tree.find(5));
-console.log(tree.find(16));
-console.log(tree.find(13));
-console.log(tree.find(11));
+// console.log(tree.find(5));
+// console.log(tree.find(16));
+// console.log(tree.find(13));
+// console.log(tree.find(11));
 
+tree.insert(10);
+tree.insert(6);
+tree.insert(3);
+tree.insert(8);
+tree.insert(15);
+tree.insert(20);
 console.log(tree.bfs());
 console.log(tree.dfsPreorder());
+console.log(tree.dfsPostOrder());
+console.log(tree.dfsInOrder());
