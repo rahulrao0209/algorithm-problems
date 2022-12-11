@@ -19,6 +19,7 @@ _A collection of algorithm problems implemented in TypeScript_
 - [Median of Two Sorted Arrays](./median-of-two-sorted-arrays/index.ts)
 - [Merge Sort](./merge-sort/index.ts)
 - [Power Recursive](./power-recursive/index.ts)
+- [Priority Queue](./priority-priority-queue/index.ts)
 - [Product of Array Recursive](./product-of-array-recursive/index.ts)
 - [Queue](./queue/index.ts)
 - [Quick Sort](./quick-sort/index.ts)
