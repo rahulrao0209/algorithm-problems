@@ -74,6 +74,10 @@ class MaxBinaryHeap {
     this.#bubbleDown(0);
     return extractedValue;
   }
+
+  get heapData() {
+    return this.#values;
+  }
 }
 
 const maxBinaryHeap = new MaxBinaryHeap();
@@ -85,5 +89,15 @@ console.log(maxBinaryHeap.insert(18));
 console.log(maxBinaryHeap.insert(27));
 console.log(maxBinaryHeap.insert(12));
 console.log(maxBinaryHeap.insert(55));
+
 console.log(maxBinaryHeap.extractMax());
+console.log(maxBinaryHeap.heapData);
+console.log(maxBinaryHeap.extractMax());
+console.log(maxBinaryHeap.heapData);
+console.log(maxBinaryHeap.extractMax());
+console.log(maxBinaryHeap.extractMax());
+console.log(maxBinaryHeap.extractMax());
+console.log(maxBinaryHeap.extractMax());
+console.log(maxBinaryHeap.extractMax());
+console.log(maxBinaryHeap.heapData);
 console.log(maxBinaryHeap.insert(100));
