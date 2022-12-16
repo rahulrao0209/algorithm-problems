@@ -21,6 +21,11 @@ class Graph {
     if (!this.#adjacencyList[vertex])
       throw new Error("The vertex provided does not exist!");
 
+    // Remove all the references/edges to the vertex from other vertices
+    this.#adjacencyList[vertex].forEach((v: string) =>
+      this.removeEdge(vertex, v)
+    );
+
     delete this.#adjacencyList[vertex];
   }
 
@@ -62,6 +67,7 @@ console.log(cityGraph.graphData);
 
 // Add edges/connections
 cityGraph.addEdge("Mumbai", "Delhi");
+cityGraph.addEdge("Mumbai", "Chennai");
 cityGraph.addEdge("Delhi", "Lucknow");
 console.log(cityGraph.graphData);
 
