@@ -22,8 +22,8 @@ class Graph {
       throw new Error("The vertex provided does not exist!");
 
     // Remove all the references/edges to the vertex from other vertices
-    this.#adjacencyList[vertex].forEach((v: string) =>
-      this.removeEdge(vertex, v)
+    this.#adjacencyList[vertex].forEach((adjacentVertex: string) =>
+      this.removeEdge(vertex, adjacentVertex)
     );
 
     delete this.#adjacencyList[vertex];
