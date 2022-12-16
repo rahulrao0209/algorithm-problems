@@ -12,6 +12,7 @@ _A collection of algorithm problems implemented in TypeScript_
 - [Factorial Recursive](./factorial-recursive/index.ts)
 - [Fibonacci Recursive](./fibonacci-recursive/index.ts)
 - [Flatten](./flatten/index.ts)
+- [Graphs](./graphs/index.ts)
 - [Insertion Sort](./insertion-sort/index.ts)
 - [Palindrome Recursive](./is-palindrome-recursive/index.ts)
 - [Max Binary Heap](./max-binary-heap/index.ts)
