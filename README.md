@@ -7,6 +7,7 @@ _A collection of algorithm problems implemented in TypeScript_
 - [Binary Search Tree](./binary-search-trees/index.ts)
 - [Bubble Sort](./bubble-sort/index.ts)
 - [Count Unique Values](./count-unique-values/index.ts)
+- [Dijkstra's Algorithm](./Dijkstra's-algorithm/index.ts)
 - [Doubly Linked List](./doubly-linked-list/index.ts)
 - [Factorial Iterative](./factorial-iterative/index.ts)
 - [Factorial Recursive](./factorial-recursive/index.ts)
