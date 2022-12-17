@@ -95,6 +95,31 @@ class Graph {
     return result;
   }
 
+  bfs(vertex: string) {
+    if (!this.#adjacencyList[vertex])
+      throw new Error("The vertex provided does not exist!");
+
+    const result: string[] = [];
+    const visitedVertexes: { [prop: string]: boolean } = {};
+    const queue = [vertex];
+    let currentVertex: string | undefined;
+
+    while (queue.length) {
+      currentVertex = queue.shift();
+
+      if (currentVertex && !visitedVertexes[currentVertex]) {
+        visitedVertexes[currentVertex] = true;
+        result.push(currentVertex);
+
+        this.#adjacencyList[currentVertex].forEach((adjacentVertex: string) =>
+          queue.push(adjacentVertex)
+        );
+      }
+    }
+
+    return result;
+  }
+
   get graphData() {
     return this.#adjacencyList;
   }
@@ -146,3 +171,4 @@ graph.addEdge("E", "F");
 
 console.log("DFS Recursive: ", graph.dfsRecursive("A"));
 console.log("DFS Iterative: ", graph.dfsIterative("A"));
+console.log("BFS: ", graph.bfs("A"));
