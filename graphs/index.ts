@@ -50,6 +50,51 @@ class Graph {
     this.#adjacencyList[vertex2].splice(vertex1Idx, 1);
   }
 
+  dfsRecursive(vertex: string) {
+    if (!this.#adjacencyList[vertex])
+      throw new Error("The vertex provided does not exist!");
+
+    const result: string[] = [];
+    const visitedVertexes: { [prop: string]: boolean } = {};
+
+    const dfsHelper = (vertex: string) => {
+      result.push(vertex);
+      visitedVertexes[vertex] = true;
+
+      this.#adjacencyList[vertex].forEach((adjacentVertex) => {
+        if (!visitedVertexes[adjacentVertex]) dfsHelper(adjacentVertex);
+      });
+    };
+
+    dfsHelper(vertex);
+    return result;
+  }
+
+  dfsIterative(vertex: string) {
+    if (!this.#adjacencyList[vertex])
+      throw new Error("The vertex provided does not exist!");
+
+    const result: string[] = [];
+    const visitedVertexes: { [prop: string]: boolean } = {};
+    const stack: string[] = [vertex];
+    let currentVertex: string | undefined;
+
+    while (stack.length) {
+      currentVertex = stack.pop();
+      if (currentVertex && !visitedVertexes[currentVertex]) {
+        visitedVertexes[currentVertex] = true;
+        result.push(currentVertex);
+
+        currentVertex &&
+          this.#adjacencyList[currentVertex].forEach((adjacentVertex) => {
+            stack.push(adjacentVertex);
+          });
+      }
+    }
+
+    return result;
+  }
+
   get graphData() {
     return this.#adjacencyList;
   }
@@ -71,6 +116,9 @@ cityGraph.addEdge("Mumbai", "Chennai");
 cityGraph.addEdge("Delhi", "Lucknow");
 console.log(cityGraph.graphData);
 
+// DFS Recursive
+console.log(cityGraph.dfsRecursive("Mumbai"));
+
 // Remove an edge
 cityGraph.removeEdge("Mumbai", "Delhi");
 console.log(cityGraph.graphData);
@@ -78,3 +126,23 @@ console.log(cityGraph.graphData);
 // Remove a vertex
 cityGraph.removeVertex("Mumbai");
 console.log(cityGraph.graphData);
+
+const graph = new Graph();
+
+graph.addVertex("A");
+graph.addVertex("B");
+graph.addVertex("C");
+graph.addVertex("D");
+graph.addVertex("E");
+graph.addVertex("F");
+
+graph.addEdge("A", "B");
+graph.addEdge("A", "C");
+graph.addEdge("B", "D");
+graph.addEdge("C", "E");
+graph.addEdge("D", "E");
+graph.addEdge("D", "F");
+graph.addEdge("E", "F");
+
+console.log("DFS Recursive: ", graph.dfsRecursive("A"));
+console.log("DFS Iterative: ", graph.dfsIterative("A"));
