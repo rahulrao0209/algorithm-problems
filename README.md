@@ -15,6 +15,7 @@ _A collection of algorithm problems implemented in TypeScript_
 - [Flatten](./flatten/index.ts)
 - [Graphs](./graphs/index.ts)
 - [Insertion Sort](./insertion-sort/index.ts)
+- [Longest Palindromic Substring](./longest-palindromic-substring/index.ts)
 - [Palindrome Recursive](./is-palindrome-recursive/index.ts)
 - [Max Binary Heap](./max-binary-heap/index.ts)
 - [Max Subarray Sum](./max-subarray-sum/index.ts)
