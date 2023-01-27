@@ -17,6 +17,7 @@ _A collection of algorithm problems implemented in TypeScript_
 - [Insertion Sort](./insertion-sort/index.ts)
 - [Longest Palindromic Substring](./longest-palindromic-substring/index.ts)
 - [Longest Substring without repeating characters](./longest-substring-without-repeating-characters/index.ts)
+- [LRU Cache](./LRU-cache/index.ts)
 - [Palindrome Recursive](./is-palindrome-recursive/index.ts)
 - [Max Binary Heap](./max-binary-heap/index.ts)
 - [Max Subarray Sum](./max-subarray-sum/index.ts)
