@@ -90,9 +90,11 @@ class DoublyLinkedList {
 
     if (prevNode && nextNode) {
       [prevNode.next, nextNode.prev] = [nextNode, prevNode];
+      this.length -= 1;
     } else if (!prevNode) {
       this.shift();
     } else if (!nextNode) {
+      this.pop();
     }
   }
 
@@ -105,7 +107,6 @@ class DoublyLinkedList {
       currentNode = currentNode.next;
     }
 
-    res += " null";
     console.log(res);
   }
 }
@@ -123,7 +124,7 @@ class LRUCache {
 
   /* Remove the least recently used node from the list */
   #shift() {
-    this.#doublyLinkedList.shift();
+    return this.#doublyLinkedList.shift();
   }
 
   /* Insert a node at the right(most recently used) */
@@ -136,15 +137,16 @@ class LRUCache {
   }
 
   get(key: number): number {
-    if (this.#cache.get(key)) {
+    const node: ListNode | undefined = this.#cache.get(key);
+    if (node) {
       /*
-        For getting a node from LRU first remove that node from and the list 
+        For getting a node from LRU first remove that node from and the list
         and then insert it at the end so that it becomes the most recently used node.
         Finally return the value.
       */
-      this.#remove(this.#cache.get(key));
-      this.#insert(this.#cache.get(key));
-      return this.#cache.get(key).val;
+      this.#remove(node);
+      this.#insert(node);
+      return node.val;
     }
     return -1;
   }
@@ -164,11 +166,12 @@ class LRUCache {
 
     /* If we exceed the capacity, remove the least recently used node */
     if (this.#cache.size > this.#capacity) {
-      const removedNode = this.#doublyLinkedList.shift();
+      const removedNode = this.#shift();
       this.#cache.delete(removedNode?.key);
     }
 
     this.#doublyLinkedList.print();
+    console.log(this.#cache);
   }
 
   get capacity() {
@@ -182,10 +185,15 @@ class LRUCache {
 
 /* Test cases */
 const lru = new LRUCache(3);
-lru.put(1, 100);
-lru.put(3, 300);
-lru.put(2, 200);
-lru.put(4, 400);
-lru.put(6, 600);
-console.log(lru.get(2));
-lru.put(7, 700);
+lru.put(1, 1);
+lru.put(2, 2);
+lru.put(3, 3);
+lru.put(4, 4);
+lru.put(5, 5);
+lru.put(6, 6);
+lru.put(7, 7);
+console.log(lru.get(6));
+console.log(lru.get(7));
+console.log(lru.get(5));
+
+console.log(new DoublyLinkedList().print());
